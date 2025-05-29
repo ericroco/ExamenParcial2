@@ -1,0 +1,59 @@
+PROMPT 1
+Eres un experto en programacion concurrente, genera la solucion en java usando un pool de hilos al siguiente problema:
+
+Simular un torneo de tenis con 16 jugadores en formato de eliminación directa. Cada partido se juega al mejor de 3 sets (gana quien primero gana 2 sets). El ganador de cada partido avanza a la siguiente ronda. Las rondas se juegan en simultaneo; la siguiente ronda inicia solo cuando todos los partidos de la ronda actual han terminado.
+
+Reglas del torneo:
+
+Participan 16 jugadores numerados del 1 al 16.
+
+El torneo tiene las siguientes rondas: octavos, cuartos, semifinal y final
+
+Cada partido se juega a un máximo de 3 sets
+
+Cada set se gana aleatoriamente, debe diseñar un mecanismo aleatorio
+
+Se muestra el ganador de cada set y el resultado final del partido
+
+En caso de empata 1 - 1 después de 2 sets, se juega un tercer set como desempate
+
+Cada set debe durar entre 1.5 y 2 segundos
+
+Usar Executor service, Callable y Future (de ser posible realizarlo solamente con esto, nada de librerías externas ni nada que no haya sido mencionado en el contexto dado)
+
+Continuar las rondas hasta encontrar al campeón
+
+Lo esperado es que devuelvas un programa usando programación concurrente para resolver el siguiente problema, las partes secuenciales deben ser: los sets (primero set 1, set 2 y set 3 de ser necesario) y el inicio de la siguiente ronda pero la simulacion de partidos debe ser concurrente, todos los partidos se juegan en simultaneo, usa solamente el contexto dado como inspiracion no trates de usar librerias que no hayan sido mencionadas, también la solucion debe ser lo más orientada a objetos posible
+
+
+PROMPT 2
+Ten en cuenta de que en la ronda de octavos de final, el jugador 1 debe enfrentarse al jugador 16 (llave 1), el jugador 2 al 15(llave 2) y así sucesivamente, pero de cuartos de final en adelante el ganador de la llave 1 debe enfrentarse al ganador de la llave 2( este enfrentamiento pasaría a ser la nueva llave 1 de cuartos de final)  y lo mismo con los demás enfrentamientos, esto va a aplicar tambien para la semifinal y la final
+
+
+PROMPT 3
+Me gustaría arreglar la presentacion, agreguemos a que llave(partido) pertenece cada set jugado para que sea menos confuso la presentacion en la terminal
+
+PROMPT 4
+Quiero asignar los enfrentamientos de otra forma, la llave 1 deberia ser jugador 1 vs jugador 16, la llave 2 debe ser jugador 2 vs jugador 15, y así sucesivamente en los octavos de final, solo de 4tos de final en adelante se juega ganador de llave 1 vs ganador de llave 2
+
+PROMPT 5
+Hay un error al momento de asignar los enfrentamientos de 4tos de final, en una simulacion me dio al ganador de la llave 1 vs al ganador de la llave 3, cuando yo no quiero eso, quiero que el ganador de la llave 1 espere al ganador de la llave 2 antes de darse el enfrentamiento, el ganador de la llave 3 debe ir con el ganador de la llave 4 y así sucesivamente
+
+PROMPT 6
+Jugador 1 vs Jugador 16
+Set 1: Jugador 16
+Set 2: Jugador 1
+Set 3: Jugador 1
+Ganador del partido: Jugador 1
+
+Jugador 2 vs Jugador 15
+Set 1: Jugador 2
+Set 2: Jugador 2
+Ganador del partido: Jugador 2
+
+Jugador 3 vs Jugador 14
+Set 1: Jugador 3
+Set 2: Jugador 14
+Set 3: Jugador 14
+Ganador del partido: Jugador 14
+Los resultados deberían imprimirse con este formato, primero, el emparejamiento, resultado de cad set y el ganador de cada partido
